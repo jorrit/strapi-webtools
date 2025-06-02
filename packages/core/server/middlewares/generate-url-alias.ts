@@ -92,6 +92,7 @@ const generateUrlAliasMiddleware: Modules.Documents.Middleware.Middleware = asyn
   const combinedEntity = { ...fullEntityWithoutLocalizations };
   const urlPatterns = await getPluginService('url-pattern').findByUid(uid, combinedEntity.locale);
 
+  console.log('urlPatterns = ', urlPatterns);
   await Promise.all(urlPatterns.map(async (urlPattern) => {
     const generatedPath = getPluginService('url-pattern').resolvePattern(uid, combinedEntity, urlPattern);
 
@@ -121,6 +122,7 @@ const generateUrlAliasMiddleware: Modules.Documents.Middleware.Middleware = asyn
           },
         });
       } else {
+        console.info('Writing alias', generatedPath);
         urlAliasEntity = await strapi.documents('plugin::webtools.url-alias').create({
           locale: combinedEntity.locale,
           data: {

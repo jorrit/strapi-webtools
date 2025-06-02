@@ -7,7 +7,7 @@ module.exports = {
   // setupFilesAfterEnv: ['./playground/__tests__/setup-strapi.ts'],
   // globalTeardown: './playground/__tests__/teardown-strapi.ts',
   coverageDirectory: './coverage/',
-  collectCoverage: true,
+  collectCoverage: false,
   transform: {
     '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
   },

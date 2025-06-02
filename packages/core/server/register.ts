@@ -11,7 +11,7 @@ import generateUrlAliasMiddleware from './middlewares/generate-url-alias';
 
 export default ({ strapi }: { strapi: Core.Strapi }) => {
   strapi.hook('strapi::content-types.beforeSync').register(disableContentType);
-
+  console.log('registering the document middlewares');
   strapi.documents.use(preventDuplicateUrlsMiddleware);
   strapi.documents.use(deleteUrlAliasMiddleware);
   strapi.documents.use(generateUrlAliasMiddleware);
