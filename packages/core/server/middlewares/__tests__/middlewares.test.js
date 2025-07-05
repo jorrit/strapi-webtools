@@ -92,7 +92,7 @@ describe('Query layer decorator', () => {
   it('Create - Should generate a unique URL alias for duplicate source content across translated content', async () => {
     const english_page = await strapi.documents('api::test.test').create({
       data: {
-        title: 'Some amazing new localized page',
+        title: 'Some amazing new translated page',
       },
       locale: 'en',
       populate: ['url_alias'],
@@ -100,7 +100,7 @@ describe('Query layer decorator', () => {
     const dutch_page = await strapi.documents('api::test.test').update({
       documentId: english_page.documentId,
       data: {
-        title: 'Some amazing new localized page',
+        title: 'Some amazing new translated page',
       },
       locale: 'nl',
       populate: ['url_alias'],
@@ -109,8 +109,8 @@ describe('Query layer decorator', () => {
     expect(english_page).toHaveProperty('locale', 'en');
     expect(dutch_page).toHaveProperty('locale', 'nl');
     expect(dutch_page).toHaveProperty('documentId', english_page.documentId);
-    expect(english_page).toHaveProperty('url_alias[0].url_path', '/page/some-amazing-new-localized-page');
-    expect(dutch_page).toHaveProperty('url_alias[0].url_path', '/page/some-amazing-new-localized-page-0');
+    expect(english_page).toHaveProperty('url_alias[0].url_path', '/page/some-amazing-new-translated-page');
+    expect(dutch_page).toHaveProperty('url_alias[0].url_path', '/page/some-amazing-new-translated-page-0');
   });
 
   it('Create - Should allow duplicate URL alias for duplicate source content within locale if configured', async () => {
