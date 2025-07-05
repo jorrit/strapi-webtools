@@ -92,7 +92,6 @@ const generateUrlAliasMiddleware: Modules.Documents.Middleware.Middleware = asyn
   const combinedEntity = { ...fullEntityWithoutLocalizations };
   const urlPatterns = await getPluginService('url-pattern').findByUid(uid, combinedEntity.locale);
 
-  console.log('urlPatterns ', uid, combinedEntity.locale, urlPatterns);
   await Promise.all(urlPatterns.map(async (urlPattern) => {
     const generatedPath = getPluginService('url-pattern').resolvePattern(uid, combinedEntity, urlPattern);
 
