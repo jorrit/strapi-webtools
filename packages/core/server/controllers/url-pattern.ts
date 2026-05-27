@@ -17,15 +17,6 @@ export default factories.createCoreController(contentTypeSlug, ({ strapi }) => (
     const formattedFields = {};
 
     Object.values(strapi.contentTypes).forEach((contentType: Schema.ContentType) => {
-      const { pluginOptions } = contentType;
-
-      // Not for CTs that are not visible in the content manager.
-      const isInContentManager = get(pluginOptions, [
-        'content-manager',
-        'visible',
-      ]) as boolean;
-      if (isInContentManager === false) return;
-
       const fields = getPluginService('url-pattern').getAllowedFields(
         contentType,
         ['pluralName', 'string', 'uid', 'documentId'],
