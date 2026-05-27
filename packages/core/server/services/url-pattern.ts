@@ -56,6 +56,10 @@ const customServices = () => ({
           // field.target is not strongly typed in the Strapi Attribute types.
           const relation = strapi.contentTypes[field.target as UID.ContentType];
 
+          if (!relation) {
+            return;
+          }
+
           if (allowedFields.includes('documentId') && !fields.includes(`${fieldName}.documentId`)) {
             fields.push(`${fieldName}.documentId`);
           }
@@ -71,6 +75,10 @@ const customServices = () => ({
           && field.repeatable !== true // TODO: implement repeatable components.
         ) {
           const relation = strapi.components[field.component];
+
+          if (!relation) {
+            return;
+          }
 
           if (allowedFields.includes('documentId') && !fields.includes(`${fieldName}.documentId`)) {
             fields.push(`${fieldName}.documentId`);
