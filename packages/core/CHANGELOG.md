@@ -1,5 +1,11 @@
 # core
 
+## 1.10.1
+
+### Patch Changes
+
+- [`6d6233d`](https://github.com/pluginpal/strapi-webtools/commit/6d6233daeef5966ac87a9645c8ac4906e7661492) Thanks [@boazpoolman](https://github.com/boazpoolman)! - fix: prevent the allowed fields endpoint from crashing when using polymorphic relations
+
 ## 1.10.0
 
 ### Minor Changes
