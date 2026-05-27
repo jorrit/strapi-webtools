@@ -19,7 +19,7 @@ export default factories.createCoreController(contentTypeSlug, ({ strapi }) => (
     Object.values(strapi.contentTypes).forEach((contentType: Schema.ContentType) => {
       const fields = getPluginService('url-pattern').getAllowedFields(
         contentType,
-        ['pluralName', 'string', 'uid', 'documentId'],
+        ['pluralName', 'string', 'text', 'uid', 'documentId'],
       );
       formattedFields[contentType.uid] = fields;
     });
@@ -36,6 +36,7 @@ export default factories.createCoreController(contentTypeSlug, ({ strapi }) => (
     const fields = urlPatternService.getAllowedFields(contentType, [
       'pluralName',
       'string',
+      'text',
       'uid',
       'documentId',
     ]);
