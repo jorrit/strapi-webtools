@@ -1,5 +1,11 @@
 # core
 
+## 1.10.3
+
+### Patch Changes
+
+- [`44d0a76`](https://github.com/pluginpal/strapi-webtools/commit/44d0a768f062a6ac8cf9cea875fcb4c405cbcb06) Thanks [@boazpoolman](https://github.com/boazpoolman)! - fix: allow text fields in the pattern
+
 ## 1.10.2
 
 ### Patch Changes
