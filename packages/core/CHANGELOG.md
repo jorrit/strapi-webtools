@@ -1,5 +1,11 @@
 # core
 
+## 1.10.2
+
+### Patch Changes
+
+- [`c74eaaf`](https://github.com/pluginpal/strapi-webtools/commit/c74eaaf6d4c51d6316b4ec5212dc62fb24668b73) Thanks [@boazpoolman](https://github.com/boazpoolman)! - fix: make sure ct's not visible in the ctm are still included in the allowed-fields endpoint
+
 ## 1.10.1
 
 ### Patch Changes
